@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <button id="btn">Click me</button>
+        <div id="div">
+
+        </div>
+    </div>
+<script>
+    document.getElementById("btn").addEventListener("click",handleChange())
+    function handleChange(){
+        console.log("here");
+        var status = false;
+        return function(){
+            if(status){
+                return
+            }
+            status = true;
+            setTimeout(() => {
+                var div = document.getElementById("div");
+                var p = document.createElement("p");
+                p.textContent = "Throttling happening  ";
+                div.append(p);
+                status=false;
+            },500);
+        }
+    }
+</script>
+</body>
+</html>
